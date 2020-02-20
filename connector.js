@@ -185,9 +185,11 @@ uri: this.uri
  *   Will be HTML text if hibernating instance.
  * @param {error} callback.error - The error property of callback.
  */
-post(callOptions, callback) {
-  callOptions.method = 'POST';
-  this.sendRequest(callOptions, (results, error) => callback(results, error));
+post(callback) {
+  let getCallOptions = this.options;
+  getCallOptions.method = 'POST';
+  getCallOptions.query = 'sysparm_limit=1';
+  this.sendRequest(getCallOptions, (results, error) => callback(results, error));
 }
 
 }
