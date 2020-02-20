@@ -125,7 +125,7 @@ console.error(error);
 console.error('Error present.');
 callbackError = error;
 } else if (!validResponseRegex.test(response.statusCode)) {
-console.error('Bad response code.');
+console.error('Bad response code.'+ response.body);
 callbackError = response;
 } else if (this.isHibernating(response)) {
 callbackError = 'Service Now instance is hibernating';
@@ -133,6 +133,7 @@ console.error(callbackError);
 } else {
 callbackData = response;
 } 
+console.log("//////////////////////////////////////////////////\n\n\n\n\n"+error);
 return callback(callbackData, callbackError);
 }
 
