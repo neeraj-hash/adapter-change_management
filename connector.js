@@ -133,7 +133,7 @@ console.error(callbackError);
 } else {
 callbackData = response;
 } 
-console.log("//////////////////////////////////////////////////\n\n\n\n\n"+error);
+
 return callback(callbackData, callbackError);
 }
 
@@ -186,11 +186,9 @@ uri: this.uri
  *   Will be HTML text if hibernating instance.
  * @param {error} callback.error - The error property of callback.
  */
-post(callback) {
-  let getCallOptions = this.options;
-  getCallOptions.method = 'POST';
-  getCallOptions.query = 'sysparm_limit=1';
-  this.sendRequest(getCallOptions, (results, error) => callback(results, error));
+post(callOptions, callback) {
+  callOptions.method = 'POST';
+  this.sendRequest(callOptions, (results, error) => callback(results, error));
 }
 
 }
